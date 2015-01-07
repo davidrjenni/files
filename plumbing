@@ -1,0 +1,59 @@
+# to update: cat $HOME/lib/plumbing | 9p write plumb/rules
+
+editor = acme
+
+# git changesets
+type	is	text
+data	matches	'([a-f0-9][a-f0-9][a-f0-9][a-f0-9][a-f0-9][a-f0-9][a-f0-9]\.\.[a-f0-9][a-f0-9][a-f0-9][a-f0-9][a-f0-9][a-f0-9][a-f0-9])'
+plumb	start	9 rc -c 'git -C '$wdir' show '$1' | plumb -w '$wdir' -d edit -a ''action=showdata filename=+'$1''' -i'
+
+# git changesets
+type	is	text
+data	matches	'(([a-f0-9][a-f0-9][a-f0-9][a-f0-9][a-f0-9][a-f0-9][a-f0-9][a-f0-9][a-f0-9][a-f0-9][a-f0-9][a-f0-9][a-f0-9][a-f0-9][a-f0-9][a-f0-9])+)'
+plumb	start	9 rc -c 'git -C '$wdir' show '$1' | plumb -w '$wdir' -d edit -a ''action=showdata filename=+'$1''' -i'
+
+# mercurial changesets
+type	is	text
+data	matches	'([a-f0-9][a-f0-9][a-f0-9][a-f0-9][a-f0-9][a-f0-9][a-f0-9][a-f0-9][a-f0-9][a-f0-9][a-f0-9][a-f0-9])'
+plumb	start	9 rc -c 'hg --cwd '$wdir' diff -p -g -c '$1' | plumb -w '$wdir' -d edit -a ''action=showdata filename=+'$1''' -i'
+
+# image files go to page
+type	is	text
+data	matches	'[a-zA-Z¡-￿0-9_\-./]+'
+data	matches	'([a-zA-Z¡-￿0-9_\-./]+)\.(jpe?g|JPE?G|gif|GIF|tiff?|TIFF?|ppm|bit|png|PNG)'
+arg	isfile	$0
+plumb	start	sxiv $file
+
+# postscript/pdf/dvi go to page but not over the a plumb port
+# the port is here for reference but is unused
+type	is	text
+data	matches	'[a-zA-Z¡-￿0-9_\-./]+'
+data	matches	'([a-zA-Z¡-￿0-9_\-./]+)\.(ps|PS|eps|EPS|pdf|PDF|dvi|DVI)'
+arg	isfile	$0
+plumb	start	mupdf $file
+
+# libre office - s[xt][cdigmw], doc, xls, ppt, docx, xlsx, pptx
+data	matches	'[a-zA-Z¡-￿0-9_\-./]+'
+data	matches	'([a-zA-Z¡-￿0-9_\-./]+)\.([Ss][XxTt][CcDdIiGgMmWw]|[Dd][Oo][Cc]|[Xx][Ll][Ss]|[Pp][Pp][Tt][Xx])'
+arg	isfile	$0
+plumb	to	libreoffice
+plumb	start	libreoffice $file
+
+# music files go to mplayer
+type	is	text
+data	matches	'[a-zA-Z¡-￿0-9_\-./]+'
+data	matches	'([a-zA-Z¡-￿0-9_\-./]+)\.(mp3|MP3)'
+arg	isfile	$0
+plumb	to	mplayer
+plumb	start	mplayer $file
+
+# video files go to mplayer
+type	is	text
+data	matches	'[a-zA-Z¡-￿0-9_\-./]+'
+data	matches	'([a-zA-Z¡-￿0-9_\-./]+)\.(avi|AVI|mkv|MKV|mp4|MP4|m4v|M4V|webm|WEBM|ogv|OGV|flv|FLV)'
+arg	isfile	$0
+plumb	to	mplayer
+plumb	start	mplayer $file
+
+include basic
+

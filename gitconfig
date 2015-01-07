@@ -1,0 +1,10 @@
+[user]
+	email = david.r.jenni@gmail.com
+	name = David R. Jenni
+[push]
+	default = simple
+[alias]
+	st = status
+	ci = commit
+	d  = diff
+	dc = diff --cached
