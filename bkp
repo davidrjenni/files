@@ -1,0 +1,17 @@
+#!/bin/sh
+sudo rsync -avPz --delete		\
+	--exclude=/boot/lost+found	\
+	--exclude=/dev/*		\
+	--exclude=/home/dave/.cache/*	\
+	--exclude=/home/lost+found	\
+	--exclude=/lost+found		\
+	--exclude=/mnt/*		\
+	--exclude=/proc/*		\
+	--exclude=/run/*		\
+	--exclude=/sys/*		\
+	--exclude=/tmp/*		\
+	--exclude=/var/cache/pacman/*	\
+	--exclude=/var/log/*		\
+	--exclude=/var/tmp/*		\
+	/ /mnt/backup/
+

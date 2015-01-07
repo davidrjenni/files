@@ -1,0 +1,29 @@
+#!/bin/sh
+
+# Turn VGA on.
+if [[ $1 = "on" ]]; then
+    # Left of LVDS1 screen.
+    if [[ $2 = "l" ]]; then
+        # Auto.
+        if [[ $3 = "" ]]; then
+            xrandr --output LVDS1 --auto --output VGA1 --auto --left-of LVDS1
+        # Resolution mode.
+        else
+            xrandr --output LVDS1 --auto --output VGA1 --mode $3 --left-of LVDS1
+        fi
+    # Only VGA screen, turn LVDS1 off.
+    elif [[ $2 = "s" ]]; then
+        # Auto.
+        if [[ $3 = "" ]]; then
+            xrandr --output VGA1 --auto --output LVDS1 --off
+        # Resolution mode.
+        else
+            xrandr --output VGA1 --mode $3 --output LVDS1 --off
+        fi
+    fi
+# Turn VGA off (and turn LVDS1 on).
+elif [[ $1 = "off" ]]; then
+    xrandr --output VGA1 --off --output LVDS1 --auto
+else
+    echo "Usage: vga (on|off) (l|s) [resolution]"
+fi

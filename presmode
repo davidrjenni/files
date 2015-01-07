@@ -1,0 +1,14 @@
+#!/bin/sh
+
+# Screensaver: off.
+xset s off
+# DPMS: off.
+if [[ $1 = "on" ]]; then
+    xset -dpms 
+# DPMS: on, standby: 10min, suspend: 15min, off: 20min.
+elif [[ $1 = "off" ]]; then
+    xset +dpms
+    xset dpms 600 900 1200
+else
+    echo "Usage: presmode (on|off)"
+fi
