@@ -8,3 +8,11 @@
 	ci = commit
 	d  = diff
 	dc = diff --cached
+	change = codereview change
+	gofmt = codereview gofmt
+	mail = codereview mail
+	pending = codereview pending
+	submit = codereview submit
+	sync = codereview sync
+[http]
+	cookiefile = /home/dave/.gitcookies
