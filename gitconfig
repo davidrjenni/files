@@ -8,6 +8,7 @@
 	ci = commit
 	d  = diff
 	dc = diff --cached
+	lg = log --graph --pretty=format:'%h : %an : %ar %n%w(60)%s'
 	change = codereview change
 	gofmt = codereview gofmt
 	mail = codereview mail
