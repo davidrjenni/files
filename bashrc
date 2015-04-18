@@ -10,10 +10,9 @@ complete -cf sudo
 bind '"\e[A": history-search-backward'
 bind '"\e[B": history-search-forward'
 
-alias halt="sudo systemctl poweroff"
-alias reboot="sudo systemctl reboot"
-alias ls="ls --color=auto"
-alias grep="grep --color=auto"
+alias acmef="acme -a -f /mnt/font/LucidaGrande/15a/font"
+
+PS1="% "
 
 function extract() {
 	if [ -f $1 ]; then
