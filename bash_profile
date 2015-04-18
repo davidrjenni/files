@@ -1,11 +1,10 @@
 [[ -f ~/.bashrc ]] && . ~/.bashrc
 
-export BROWSER=chromium
+export BROWSER=chrome
 export EDITOR=vim
-export PLAN9=~/dev/plan9port
+export PLAN9=~/code/plan9port
 export GOPATH=~/gocode
-export GOROOT=~/dev/go
-export PATH=$PATH:$PLAN9/bin:$GOROOT/bin:$GOPATH/bin:~/dev/cmd
-export JAVA_HOME=/usr/lib/jvm/java-8-jdk/
+export GOROOT=~/go
+export PATH=$PATH:~/Library/Android/sdk/platform-tools
+export PATH=$GOPATH/bin:$PATH:$PLAN9/bin:$GOROOT/bin:~/code/cmd
 
-export font=/mnt/font/Droid\ Sans/12a/font
