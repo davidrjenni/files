@@ -39,7 +39,7 @@ shopt -s autocd
 
 if [ $TERM == "dumb" ]; then
 	export PAGER=nobs
-	export EDITOR=E
+	export EDITOR=editinacme
 	export FCEDIT=$EDITOR
 	export VISUAL=$EDITOR
 	rc
