@@ -1,6 +1,6 @@
 [[ -f ~/.bashrc ]] && . ~/.bashrc
 
-export BROWSER=chrome
+export BROWSER=/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome
 export EDITOR=vim
 export PLAN9=~/code/plan9port
 export GOPATH=~/gocode
