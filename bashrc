@@ -37,6 +37,10 @@ function extract() {
 
 shopt -s autocd
 
+HISTSIZE=
+HISTFILESIZE=
+export PROMPT_COMMAND="history -a; $PROMPT_COMMAND"
+
 if [ $TERM == "dumb" ]; then
 	export PAGER=nobs
 	export EDITOR=editinacme
@@ -44,4 +48,3 @@ if [ $TERM == "dumb" ]; then
 	export VISUAL=$EDITOR
 	rc
 fi
-
