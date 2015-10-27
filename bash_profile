@@ -9,3 +9,4 @@ export PATH=$PATH:~/Library/Android/sdk/platform-tools
 export PATH=$GOPATH/bin:$PATH:$PLAN9/bin:$GOROOT/bin:~/code/cmd
 export PATH=$PATH:~/code/go_appengine
 
+export CDPATH=.:$HOME:$GOROOT/src:$GOPATH/src/golang.org:$GOPATH/src/github.com:$GOPATH/src/github.com/davidrjenni
