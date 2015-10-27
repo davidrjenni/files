@@ -35,6 +35,17 @@ function extract() {
 	fi
 }
 
+cover() {
+	t=$(mktemp)
+	go test -v $COVERFLAGS -coverprofile=$t $@ && go tool cover -func=$t && unlink $t
+}
+
+cover-web() {
+	t=$(mktemp)
+	go test -v $COVERFLAGS -coverprofile=$t $@ && go tool cover -html=$t && unlink $t
+}
+
+
 shopt -s autocd
 
 HISTSIZE=
