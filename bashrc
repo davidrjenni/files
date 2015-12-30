@@ -59,3 +59,24 @@ if [ $TERM == "dumb" ]; then
 	export VISUAL=$EDITOR
 	rc
 fi
+
+pdflatex() {
+	eval "$(docker-machine env dev)"
+	docker run --rm --env FILE="$@" -v $(pwd):/data davidrjenni/latex
+}
+
+R() {
+	eval "$(docker-machine env dev)"
+	docker run --rm -it -v $(pwd):/data davidrjenni/rlang
+}
+
+ghci() {
+	eval "$(docker-machine env dev)"
+	docker run --rm -it -v $(pwd):/data davidrjenni/haskell
+}
+
+swipl() {
+	eval "$(docker-machine env dev)"
+	docker run --rm -it -v $(pwd):/data davidrjenni/prolog
+}
+
