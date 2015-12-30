@@ -45,21 +45,6 @@ cover-web() {
 	go test -v $COVERFLAGS -coverprofile=$t $@ && go tool cover -html=$t && unlink $t
 }
 
-
-shopt -s autocd
-
-HISTSIZE=
-HISTFILESIZE=
-export PROMPT_COMMAND="history -a; $PROMPT_COMMAND"
-
-if [ $TERM == "dumb" ]; then
-	export PAGER=nobs
-	export EDITOR=editinacme
-	export FCEDIT=$EDITOR
-	export VISUAL=$EDITOR
-	rc
-fi
-
 pdflatex() {
 	eval "$(docker-machine env dev)"
 	docker run --rm --env FILE="$@" -v $(pwd):/data davidrjenni/latex
@@ -80,3 +65,16 @@ swipl() {
 	docker run --rm -it -v $(pwd):/data davidrjenni/prolog
 }
 
+shopt -s autocd
+
+HISTSIZE=
+HISTFILESIZE=
+export PROMPT_COMMAND="history -a; $PROMPT_COMMAND"
+
+if [ $TERM == "dumb" ]; then
+	export PAGER=nobs
+	export EDITOR=editinacme
+	export FCEDIT=$EDITOR
+	export VISUAL=$EDITOR
+	rc
+fi
