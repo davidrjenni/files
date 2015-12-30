@@ -11,3 +11,9 @@ export CDPATH=.:~:$GOROOT/src:$GOPATH/src/golang.org:$GOPATH/src/github.com:$GOP
 export PATH=~/Library/Android/sdk/platform-tools:$PATH
 export PATH=$GOPATH/bin:$GOROOT/bin:~/code/go_appengine:$PATH
 export PATH=$PATH:$PLAN9/bin:~/code/cmd:/usr/local/bin
+
+source $(brew --repository)/Library/Contributions/brew_bash_completion.sh
+
+if [ -f $(brew --prefix)/etc/bash_completion ]; then
+	. $(brew --prefix)/etc/bash_completion
+fi
