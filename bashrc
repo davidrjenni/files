@@ -46,22 +46,27 @@ cover-web() {
 }
 
 pdflatex() {
-	eval "$(docker-machine env dev)"
+	eval "$(docker-machine env default)"
 	docker run --rm --env FILE="$@" -v $(pwd):/data davidrjenni/latex
 }
 
+cleaver() {
+	eval "$(docker-machine env default)"
+	docker run --rm --env FILE="$@" -v $(pwd):/data davidrjenni/cleaver
+}
+
 R() {
-	eval "$(docker-machine env dev)"
+	eval "$(docker-machine env default)"
 	docker run --rm -it -v $(pwd):/data davidrjenni/rlang
 }
 
 ghci() {
-	eval "$(docker-machine env dev)"
+	eval "$(docker-machine env default)"
 	docker run --rm -it -v $(pwd):/data davidrjenni/haskell
 }
 
 swipl() {
-	eval "$(docker-machine env dev)"
+	eval "$(docker-machine env default)"
 	docker run --rm -it -v $(pwd):/data davidrjenni/prolog
 }
 
