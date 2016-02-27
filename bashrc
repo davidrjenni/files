@@ -10,7 +10,7 @@ complete -cf sudo
 bind '"\e[A": history-search-backward'
 bind '"\e[B": history-search-forward'
 
-alias acmef="acme -a -f /mnt/font/LucidaGrande/15a/font"
+alias acmef="acme -a -f /mnt/font/Ubuntu/15a/font"
 
 PS1="% "
 
