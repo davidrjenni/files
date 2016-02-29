@@ -17,4 +17,4 @@
 	submit = codereview submit
 	sync = codereview sync
 [http]
-	cookiefile = ~/.gitcookies
+	cookiefile = /Users/dave/.gitcookies
