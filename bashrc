@@ -70,6 +70,11 @@ swipl() {
 	docker run --rm -it -v $(pwd):/data davidrjenni/prolog
 }
 
+octave() {
+	eval "$(docker-machine env default)"
+	docker run --rm -it -v $(pwd):/data davidrjenni/octave
+}
+
 shopt -s autocd
 
 HISTSIZE=
