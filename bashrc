@@ -45,6 +45,12 @@ cover-web() {
 	go test -v $COVERFLAGS -coverprofile=$t $@ && go tool cover -html=$t && unlink $t
 }
 
+bench() {
+	mv new.bench old.bench
+	go test -run=NONE -count $@ -benchmem -bench=. ./... >> new.bench
+	benchstat old.bench new.bench
+}
+
 pdflatex() {
 	eval "$(docker-machine env default)"
 	docker run --rm --env FILE="$@" -v $(pwd):/data davidrjenni/latex
