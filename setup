@@ -1,0 +1,10 @@
+#!/bin/sh
+ln -fs $PWD/bashrc ~/.bashrc
+ln -fs $PWD/bash_profile ~/.bash_profile
+ln -fs $PWD/gitconfig ~/.gitconfig
+ln -fs $PWD/plumbing ~/lib/plumbing
+ln -fs $PWD/vimrc ~/.vimrc
+ln -fs $PWD/xbindkeysrc ~/.xbindkeysrc
+ln -fs $PWD/xinitrc ~/.xinitrc
+ln -fs $PWD/dwm_config.h ~/dev/dwm/config.h
+ln -fs $PWD/st_config.h ~/dev/st/config.h
