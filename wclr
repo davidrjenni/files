@@ -1,0 +1,9 @@
+#!/usr/bin/env rc
+
+fn aread { 9p read acme/$winid/$1 }
+fn awrite { 9p write acme/$winid/$1 }
+
+echo -n Edit ,d | awrite body
+echo -n /Edit ,d/ | awrite addr
+echo -n 'dot=addr' | awrite ctl
+aread addr | awk '{printf("MX%s %s\n", $1, $2)}' | awrite event
