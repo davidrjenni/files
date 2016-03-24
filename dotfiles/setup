@@ -6,5 +6,5 @@ ln -fs $PWD/plumbing ~/lib/plumbing
 ln -fs $PWD/vimrc ~/.vimrc
 ln -fs $PWD/xbindkeysrc ~/.xbindkeysrc
 ln -fs $PWD/xinitrc ~/.xinitrc
-ln -fs $PWD/dwm_config.h ~/dev/dwm/config.h
-ln -fs $PWD/st_config.h ~/dev/st/config.h
+ln -fs $PWD/dwm_config.h ~/code/dwm/config.h
+ln -fs $PWD/st_config.h ~/code/st/config.h
