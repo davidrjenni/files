@@ -81,6 +81,10 @@ octave() {
 	docker run --rm -it -v $(pwd):/data davidrjenni/octave
 }
 
+why() {
+	echo why not?
+}
+
 shopt -s autocd
 
 HISTSIZE=
