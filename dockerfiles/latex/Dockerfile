@@ -6,7 +6,8 @@ RUN apt-get update && apt-get install -y \
 	texlive-fonts-recommended \
 	texlive-lang-german \
 	texlive-latex-extra \
-	build-essential
+	build-essential \
+	latexmk
 
 COPY Makefile /Makefile
 WORKDIR /data

@@ -3,9 +3,7 @@
 all: build clean
 
 build:
-	pdflatex $(FILE)
-	pdflatex $(FILE)
-	pdflatex $(FILE)
+	latexmk -pdf $(FILE)
 
 clean:
 	rm -f *.aux *.lof *.log *.lol *.lot *.out *.toc
