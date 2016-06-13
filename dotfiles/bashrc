@@ -35,6 +35,16 @@ function extract() {
 	fi
 }
 
+function gpr() {
+	id=$1
+	if [ -z $id ]; then
+		echo "Need PR number as argument"
+		return 1
+	fi
+	git fetch origin pull/${id}/head:pr-${id}
+	git checkout pr-${id}
+}
+
 cdg() {
 	t=`pwd`
 	while ! [ -d .git ]; do
