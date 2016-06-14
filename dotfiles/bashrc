@@ -73,11 +73,6 @@ bench() {
 	benchstat old.bench new.bench
 }
 
-pdflatex() {
-	eval "$(docker-machine env default)"
-	docker run --rm --env FILE="$@" -v $(pwd):/data davidrjenni/latex
-}
-
 cleaver() {
 	eval "$(docker-machine env default)"
 	docker run --rm --env FILE="$@" -v $(pwd):/data davidrjenni/cleaver
