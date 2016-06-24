@@ -1,2 +1,2 @@
 #!/bin/sh
-date | md5sum | head -c7 | sed 's/.*/[&]/' | tr -d '\n'
+date | md5sum | head -c6 | sed 's/.*/[&]/' | tr -d '\n'
