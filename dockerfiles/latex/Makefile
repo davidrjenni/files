@@ -1,6 +1,6 @@
 .PHONY: all build clean
 
-all: build clean
+all: build
 
 build:
 	latexmk -pdf $(FILE)
