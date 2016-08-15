@@ -1,0 +1,3 @@
+#!/bin/sh
+t=$(mktemp)
+go test -v $COVERFLAGS -coverprofile=$t $@ && go tool cover -func=$t && unlink $t
