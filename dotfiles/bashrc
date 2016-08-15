@@ -48,7 +48,7 @@ function gpr() {
 cdg() {
 	t=`pwd`
 	while ! [ -d .git ]; do
-			cd ..
+		cd ..
 	done
 	OLDPWD=$t
 }
