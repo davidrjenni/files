@@ -63,11 +63,6 @@ bench() {
 	benchstat old.bench new.bench
 }
 
-cleaver() {
-	eval "$(docker-machine env default)"
-	docker run --rm --env FILE="$@" -v $(pwd):/data davidrjenni/cleaver
-}
-
 R() {
 	eval "$(docker-machine env default)"
 	docker run --rm -it -v $(pwd):/data davidrjenni/rlang
