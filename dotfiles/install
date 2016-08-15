@@ -26,3 +26,10 @@ github.com/zmb3/gogetdoc
 github.com/davidrjenni/snake
 github.com/davidrjenni/tetris
 9fans.net/go/games/4s
+
+# Setup 9 Mail
+stunnel3 -c -d 13337 -r smtp.gmail.com:465
+factotum
+factotum -g 'proto=pass service=imap server=<HOSTNAME> service=smtp user=<EMAIL> !password?'
+mailfs -t imap.gmail.com
+9 Mail
