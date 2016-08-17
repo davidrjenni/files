@@ -33,3 +33,8 @@ factotum
 factotum -g 'proto=pass service=imap server=<HOSTNAME> service=smtp user=<EMAIL> !password?'
 mailfs -t imap.gmail.com
 9 Mail
+
+# Docker Machine NFS
+https://github.com/adlogix/docker-machine-nfs
+brew install docker-machine-nfs
+docker-machine-nfs default --shared-folder=/Users --shared-folder=<other> --nfs-config="-alldirs -maproot=0"
