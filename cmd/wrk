@@ -1,0 +1,3 @@
+#!/bin/sh
+eval $(docker-machine env default)
+docker run -it --rm --add-host="docker.local:172.16.123.1" davidrjenni/wrk2 $@
