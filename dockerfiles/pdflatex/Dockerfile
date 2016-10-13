@@ -9,6 +9,5 @@ RUN apt-get update && apt-get install -y \
 	build-essential \
 	latexmk
 
-COPY Makefile /Makefile
 WORKDIR /data
-ENTRYPOINT make -f /Makefile
+ENTRYPOINT ["pdflatex"]
