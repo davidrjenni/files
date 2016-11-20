@@ -3,6 +3,7 @@ MAINTAINER David R. Jenni <david.r.jenni@gmail.com>
 
 RUN apt-get update				\
 	&& apt-get install -y			\
+		texlive-xetex			\
 		texlive-latex-recommended	\
 		texlive-fonts-recommended	\
 		texlive-lang-german		\
