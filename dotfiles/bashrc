@@ -53,6 +53,28 @@ cdg() {
 	OLDPWD=$t
 }
 
+install_go_tools() {
+	tools=(
+		'golang.org/x/tools/cmd/goimports'
+		'golang.org/x/tools/cmd/gorename'
+		'golang.org/x/tools/cmd/stringer'
+		'golang.org/x/tools/cmd/guru'
+		'golang.org/x/review/git-codereview'
+		'github.com/alecthomas/gometalinter'
+		'github.com/eaburns/Watch'
+		'9fans.net/go/acme/editinacme'
+		'9fans.net/go/acme/acmego'
+		'github.com/davidrjenni/A'
+		'github.com/josharian/impl'
+		'github.com/godoctor/godoctor'
+		'github.com/zmb3/gogetdoc'
+		'rsc.io/benchstat'
+	)
+	for tool in "${tools[@]}"; do
+		go get -u $tool
+	done
+}
+
 git_branch() {
 	git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
 }

@@ -6,22 +6,6 @@ https://github.com/davidrjenni/dotfiles
 https://github.com/davidrjenni/cmd
 https://github.com/davidrjenni/dockerfiles
 
-# Go tools
-golang.org/x/tools/cmd/goimports
-golang.org/x/tools/cmd/gorename
-golang.org/x/tools/cmd/stringer
-golang.org/x/tools/cmd/guru
-golang.org/x/tools/cmd/benchstat
-golang.org/x/review/git-codereview
-github.com/alecthomas/gometalinter
-github.com/eaburns/Watch
-9fans.net/go/acme/editinacme
-9fans.net/go/acme/acmego
-github.com/davidrjenni/A
-github.com/josharian/impl
-github.com/godoctor/godoctor
-github.com/zmb3/gogetdoc
-
 # Stuff
 github.com/davidrjenni/snake
 github.com/davidrjenni/tetris
