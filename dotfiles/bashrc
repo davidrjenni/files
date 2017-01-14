@@ -10,7 +10,10 @@ complete -cf sudo
 bind '"\e[A": history-search-backward'
 bind '"\e[B": history-search-forward'
 
-alias acmef='acme -a -f /mnt/font/GoRegular/15a/font 2> /dev/null &'
+function acmef() {
+	sh -c "nohup sh -c 'acme -l /Users/dave/acme.dump -a -f /mnt/font/GoRegular/15a/font &>/dev/null' &>/dev/null &"
+	sh -c "nohup sh -c 'sleep 2 && acmego -f &>/dev/null' &>/dev/null &"
+}
 
 PS1="\$(git_branch)% "
 
