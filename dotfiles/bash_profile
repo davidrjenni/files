@@ -15,3 +15,10 @@ export PATH=$PATH:$PLAN9/bin:~/code/files/cmd:/usr/local/bin
 if [ -f $(brew --prefix)/etc/bash_completion ]; then
 	. $(brew --prefix)/etc/bash_completion
 fi
+
+if ! pgrep -x "plumber" > /dev/null; then
+	nohup plumber &>/dev/null
+fi
+if ! pgrep -x "godoc" > /dev/null; then
+	sh -c "nohup sh -c 'godoc -http :6060 &>/dev/null' &>/dev/null &"
+fi
