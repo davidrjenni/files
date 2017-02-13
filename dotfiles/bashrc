@@ -108,6 +108,24 @@ octave() {
 	docker run --rm -it -v $(pwd):/data davidrjenni/octave
 }
 
+go1.7() {
+	eval "$(docker-machine env default)"
+	docker run --rm		\
+		-v $GOPATH:/go	\
+		-e GOOS=darwin	\
+		-e GOARCH=amd64	\
+		golang:1.7.5-alpine3.5 go $@
+}
+
+go1.8() {
+	eval "$(docker-machine env default)"
+	docker run --rm		\
+		-v $GOPATH:/go	\
+		-e GOOS=darwin	\
+		-e GOARCH=amd64	\
+		golang:1.8rc3-alpine go $@
+}
+
 why() {
 	echo why not?
 }
