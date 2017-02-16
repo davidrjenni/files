@@ -63,6 +63,7 @@ install_go_tools() {
 		'golang.org/x/tools/cmd/stringer'
 		'golang.org/x/tools/cmd/guru'
 		'golang.org/x/review/git-codereview'
+		'golang.org/x/perf/cmd/benchstat'
 		'github.com/alecthomas/gometalinter'
 		'github.com/eaburns/Watch'
 		'9fans.net/go/acme/editinacme'
@@ -71,7 +72,6 @@ install_go_tools() {
 		'github.com/josharian/impl'
 		'github.com/godoctor/godoctor'
 		'github.com/zmb3/gogetdoc'
-		'rsc.io/benchstat'
 	)
 	for tool in "${tools[@]}"; do
 		go get -u $tool
