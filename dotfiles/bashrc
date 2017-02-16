@@ -126,6 +126,10 @@ go1.8() {
 		golang:1.8rc3-alpine go $@
 }
 
+deps() {
+	go list -f '{{ join .Deps  "\n"}}' .
+}
+
 why() {
 	echo why not?
 }
