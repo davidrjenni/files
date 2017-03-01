@@ -95,7 +95,7 @@ R() {
 
 ghci() {
 	eval "$(docker-machine env default)"
-	docker run --rm -it -v $(pwd):/data davidrjenni/haskell
+	docker run --rm -it -v $(pwd):/c haskell
 }
 
 swipl() {
