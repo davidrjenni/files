@@ -1,5 +1,4 @@
 set nu
 set tabstop=4
-filetype plugin indent on
 colorscheme darkblue
 set hlsearch
