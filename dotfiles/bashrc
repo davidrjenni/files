@@ -82,12 +82,6 @@ git_branch() {
 	git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
 }
 
-bench() {
-	mv new.bench old.bench
-	go test -run=NONE -count $@ -benchmem -bench=. ./... >> new.bench
-	benchstat old.bench new.bench
-}
-
 R() {
 	eval "$(docker-machine env default)"
 	docker run --rm -it -v $(pwd):/data davidrjenni/rlang
