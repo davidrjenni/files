@@ -83,11 +83,6 @@ git_branch() {
 	git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
 }
 
-R() {
-	eval "$(docker-machine env default)"
-	docker run --rm -it -v $(pwd):/data davidrjenni/rlang
-}
-
 ghci() {
 	eval "$(docker-machine env default)"
 	docker run --rm -it -v $(pwd):/c haskell
