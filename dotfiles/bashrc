@@ -103,7 +103,7 @@ go1.7() {
 }
 
 go1.8() {
-	GOROOT=~/go1.8 ~/go1.8/bin/go $@
+	GOROOT=~/go1.8.3 ~/go1.8.3/bin/go $@
 }
 
 deps() {
