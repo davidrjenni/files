@@ -11,7 +11,12 @@ bind '"\e[A": history-search-backward'
 bind '"\e[B": history-search-forward'
 
 function acmef() {
-	sh -c "nohup sh -c 'acme -l /Users/dave/acme.dump -a -f /mnt/font/GoRegular/15a/font &>/dev/null' &>/dev/null &"
+	if [ -z $1 ]; then
+		file="acme.dump"
+	else
+		file=$1
+	fi
+	sh -c "nohup sh -c 'acme -l /Users/dave/'$file' -a -f /mnt/font/GoRegular/15a/font &>/dev/null' &>/dev/null &"
 	sh -c "nohup sh -c 'sleep 2 && acmego -f &>/dev/null' &>/dev/null &"
 }
 
