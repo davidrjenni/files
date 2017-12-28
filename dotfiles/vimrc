@@ -1,4 +1,92 @@
 set nu
+set rnu
+
+set mouse=a
+set shortmess+=I
+
 set tabstop=4
-colorscheme darkblue
+set softtabstop=4
+set shiftwidth=4
+set noexpandtab
+set autoindent
+
+set incsearch
 set hlsearch
+set ignorecase
+set smartcase
+
+colorscheme pablo
+syntax off
+set laststatus=2
+set noshowmode
+set listchars=tab:\|\ ,trail:·
+set list
+
+set lazyredraw
+set autoread
+set nowrap
+
+set splitbelow
+set splitright
+
+set wildmenu
+set confirm
+set cmdheight=1
+
+set foldenable
+set foldlevelstart=10
+set foldnestmax=10
+nnoremap <space> za
+set foldmethod=indent
+
+set statusline=
+set statusline+=%#PmenuSel#
+set statusline+=%#LineNr#
+set statusline+=\ %f
+set statusline+=%m
+set statusline+=%=
+set statusline+=%#CursorColumn#
+set statusline+=\ %y
+set statusline+=\ %{&fileencoding?&fileencoding:&encoding}
+set statusline+=\[%{&fileformat}\]
+set statusline+=\ %p%%
+set statusline+=\ %l:%c
+set statusline+=\ 
+
+if v:version > 703 || v:version == 703 && has('patch541')
+	set formatoptions+=j
+endif
+
+nnoremap <BS> {
+
+augroup resCur
+	autocmd!
+	autocmd BufReadPost * call setpos(".", getpos("'\""))
+augroup END
+
+filetype plugin on
+filetype plugin indent off
+
+autocmd BufEnter *.tex :setlocal filetype=tex
+
+autocmd FileType tex setlocal spell
+autocmd FileType tex setlocal spelllang=en_gb
+autocmd FileType tex syntax spell toplevel
+
+autocmd FileType tex inoremap ;bf    \textbf{}<Esc>T{i
+autocmd FileType tex inoremap ;if    \textit{}<Esc>T{i
+autocmd FileType tex inoremap ;tf    \texttt{}<Esc>T{i
+autocmd FileType tex inoremap ;"     ``''<Esc>2ha
+autocmd FileType tex inoremap ;cal   \mathcal{}<Esc>T{i
+autocmd FileType tex inoremap ;mbf   \mathbf{}<Esc>T{i
+autocmd FileType tex inoremap ;sec   \section{}<Esc>T{i
+autocmd FileType tex inoremap ;ssec  \subsection{}<Esc>T{i
+autocmd FileType tex inoremap ;sssec \subsubsection{}<Esc>T{i
+autocmd FileType tex inoremap ;lst   \begin{lstlisting}<Enter><Enter>\end{lstlisting}<Esc>kA<Space>
+autocmd FileType tex inoremap ;desc  \begin{description}<Enter><Enter>\end{description}<Esc>kA<Tab>\item []<Space><Esc>T[i
+autocmd FileType tex inoremap ;enum  \begin{enumerate}<Enter><Enter>\end{enumerate}<Esc>kA<Tab>\item<Space>
+autocmd FileType tex inoremap ;item  \begin{itemize}<Enter><Enter>\end{itemize}<Esc>kA<Tab>\item<Space>
+autocmd FileType tex inoremap ;li    \item<Space>
+autocmd FileType tex inoremap ;di    \item<Space>[]<Space><Esc>T[i
+autocmd FileType tex inoremap ;fig   \begin{figure}[h]<Enter><Tab>\centering<Enter><Tab>\includegraphics[scale=0.5]{TODO}<Enter><Tab>\caption{TODO}<Enter><Tab>\label{fig:TODO}<Enter>\end{figure}<Enter>
+autocmd FileType tex inoremap ;tab   \begin{table}[h]<Enter><Tab>\begin{center}<Enter><Tab><Tab>\begin{tabular}{TODO}<Enter><Tab><Tab>\end{tabular}<Enter><Tab>\caption{\label{tab:TODO}TODO}<Enter><Tab>\end{center}<Enter>\end{table}<Enter>
