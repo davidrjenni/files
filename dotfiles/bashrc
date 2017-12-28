@@ -10,6 +10,17 @@ complete -cf sudo
 bind '"\e[A": history-search-backward'
 bind '"\e[B": history-search-forward'
 
+alias ...='cd ../..'
+alias ....='cd ../../..'
+
+shopt -s autocd
+
+HISTCONTROL=erasedups
+HISTFILESIZE=10000
+HISTSIZE=10000
+shopt -s histappend
+export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
+
 function acmef() {
 	if [ -z $1 ]; then
 		file="acme.dump"
@@ -20,7 +31,19 @@ function acmef() {
 	sh -c "nohup sh -c 'sleep 2 && acmego -f &>/dev/null' &>/dev/null &"
 }
 
-PS1="\$(git_branch)% "
+git_branch() {
+	git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
+}
+
+_prompt() {
+	case $? in
+		0|130) echo -ne $(git_branch) '%';;
+		127)   echo -ne $(git_branch) '\e[1;37m\e[1;36m?\e[0m';;
+		*)     echo -ne $(git_branch) '\e[1;37m\e[1;31m!\e[0m' ;;
+	esac
+}
+
+PS1="\u[\W] \$(_prompt) "
 
 function extract() {
 	if [ -f $1 ]; then
@@ -84,10 +107,6 @@ install_go_tools() {
 	done
 }
 
-git_branch() {
-	git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
-}
-
 ghci() {
 	eval "$(docker-machine env default)"
 	docker run --rm -it -v $(pwd):/c haskell
@@ -103,7 +122,6 @@ octave() {
 	docker run --rm -it -v $(pwd):/data davidrjenni/octave
 }
 
-
 go1.8() {
 	GOROOT=~/go1.8.5 ~/go1.8.5/bin/go $@
 }
@@ -111,6 +129,7 @@ go1.8() {
 go1.9() {
 	GOROOT=~/go1.9.2 ~/go1.9.2/bin/go $@
 }
+
 deps() {
 	go list -f '{{ join .Deps  "\n"}}' .
 }
@@ -118,12 +137,6 @@ deps() {
 why() {
 	echo why not?
 }
-
-shopt -s autocd
-
-HISTSIZE=
-HISTFILESIZE=
-export PROMPT_COMMAND="history -a; $PROMPT_COMMAND"
 
 if [ $TERM == "dumb" ]; then
 	export PAGER=nobs
