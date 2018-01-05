@@ -5,8 +5,13 @@
 	default = simple
 [alias]
 	st = status -s
+	sh = stash
 	ci = commit
+	ca = commit --amend
 	co = checkout
+	ps = push
+	pf = push -f
+	pl = pull
 	b  = branch
 	d  = diff
 	dc = diff --cached
