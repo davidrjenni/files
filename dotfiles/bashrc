@@ -15,7 +15,7 @@ alias ....='cd ../../..'
 
 shopt -s autocd
 
-HISTCONTROL=erasedups
+HISTCONTROL=ignoredups:erasedups
 HISTFILESIZE=10000
 HISTSIZE=10000
 shopt -s histappend
