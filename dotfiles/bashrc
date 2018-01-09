@@ -17,6 +17,8 @@ fi
 
 alias ...='cd ../..'
 alias ....='cd ../../..'
+alias ll='ls -l'
+alias la='ls -A'
 
 shopt -s autocd
 
