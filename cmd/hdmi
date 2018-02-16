@@ -1,0 +1,20 @@
+#!/bin/sh
+
+case "$1" in
+	"s")
+		xrandr --output 'eDP-1' --off --output 'HDMI-1' --auto
+		;;
+	"l")
+		xrandr --output 'eDP-1' --auto --output 'HDMI-1' --auto --left-of 'eDP-1'
+		;;
+	"r")
+		xrandr --output 'eDP-1' --auto --output 'HDMI-1' --auto --right-of 'eDP-1'
+		;;
+	"off")
+		xrandr --output 'eDP-1' --auto --output 'HDMI-1' --off
+		;;
+	*)
+		echo "usage: hdmi (l|s|r|off)"
+		exit 1
+		;;
+esac
