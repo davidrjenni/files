@@ -17,11 +17,12 @@
 	dc = diff --cached
 	lg = log --graph --pretty=format:'%h : %an : %ar %n%w(60)%s'
 	rb = rebase
-	change = codereview change
-	gofmt = codereview gofmt
-	mail = codereview mail
+	us = reset HEAD
+	change  = codereview change
+	gofmt   = codereview gofmt
+	mail    = codereview mail
 	pending = codereview pending
-	submit = codereview submit
-	sync = codereview sync
+	submit  = codereview submit
+	sync    = codereview sync
 [http]
 	cookiefile = /Users/dave/.gitcookies
