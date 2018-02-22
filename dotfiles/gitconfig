@@ -24,5 +24,15 @@
 	pending = codereview pending
 	submit  = codereview submit
 	sync    = codereview sync
+[color]
+	ui = auto
+[color "branch"]
+	current = green reverse
+	local   = green
+	remote  = yellow
+[color "status"]
+	added     = green
+	changed   = yellow
+	untracked = cyan
 [http]
 	cookiefile = /Users/dave/.gitcookies
