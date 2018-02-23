@@ -34,5 +34,7 @@
 	added     = green
 	changed   = yellow
 	untracked = cyan
+[credential "https://github.com"]
+	username = davidrjenni
 [http]
 	cookiefile = /Users/dave/.gitcookies
