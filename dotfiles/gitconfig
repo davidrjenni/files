@@ -37,4 +37,4 @@
 [credential "https://github.com"]
 	username = davidrjenni
 [http]
-	cookiefile = /Users/dave/.gitcookies
+	cookiefile = ~/.gitcookies
