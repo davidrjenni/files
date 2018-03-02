@@ -114,27 +114,12 @@ install_go_tools() {
 	done
 }
 
-ghci() {
-	eval "$(docker-machine env default)"
-	docker run --rm -it -v $(pwd):/c haskell
-}
-
-swipl() {
-	eval "$(docker-machine env default)"
-	docker run --rm -it -v $(pwd):/data davidrjenni/prolog
-}
-
-octave() {
-	eval "$(docker-machine env default)"
-	docker run --rm -it -v $(pwd):/data davidrjenni/octave
-}
-
-go1.8() {
-	GOROOT=~/go1.8.5 ~/go1.8.5/bin/go $@
-}
-
 go1.9() {
-	GOROOT=~/go1.9.2 ~/go1.9.2/bin/go $@
+	GOROOT=~/go1.9.4 ~/go1.9.4/bin/go $@
+}
+
+go1.10() {
+	GOROOT=~/go1.10 ~/go1.10/bin/go $@
 }
 
 deps() {
