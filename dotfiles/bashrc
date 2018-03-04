@@ -7,6 +7,11 @@ fi
 
 complete -cf man
 complete -cf sudo
+
+export FIGNORE='.o:.pyc'
+bind "set show-all-if-ambiguous On"
+bind "TAB: menu-complete"
+
 bind '"\e[A": history-search-backward'
 bind '"\e[B": history-search-forward'
 
