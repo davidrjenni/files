@@ -30,6 +30,8 @@ alias ll='ls -lhpF'
 alias la='ls -ApF'
 
 shopt -s autocd
+shopt -s checkwinsize
+shopt -s dirspell direxpand
 
 HISTCONTROL=ignoredups:erasedups
 HISTFILESIZE=10000
