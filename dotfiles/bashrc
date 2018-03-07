@@ -9,12 +9,20 @@ if ! shopt -oq posix; then
 	fi
 fi
 
-complete -cf man
-complete -cf sudo
+source ~/code/fzf/shell/completion.bash
+source ~/code/fzf/shell/key-bindings.bash
 
 export FIGNORE='.o:.pyc'
 bind "set show-all-if-ambiguous On"
 bind "TAB: menu-complete"
+
+export FZF_TMUX=1
+export FZF_DEFAULT_OPTS='
+	--color dark,hl:33,hl+:37,fg+:235,bg+:136,fg+:254
+	--color info:254,prompt:37,spinner:108,pointer:235,marker:235
+'
+export FZF_CTRL_T_OPTS="--preview '(highlight -O ansi -l {} 2> /dev/null || cat {} || tree -C {}) 2> /dev/null | head -200'"
+export FZF_CTRL_R_OPTS='--sort --exact'
 
 bind '"\e[A": history-search-backward'
 bind '"\e[B": history-search-forward'
