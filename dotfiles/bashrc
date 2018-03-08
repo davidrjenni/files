@@ -118,6 +118,7 @@ install_go_tools() {
 		'golang.org/x/tools/cmd/guru'
 		'golang.org/x/review/git-codereview'
 		'golang.org/x/perf/cmd/benchstat'
+		'github.com/golang/dep/cmd/dep'
 		'github.com/alecthomas/gometalinter'
 		'github.com/eaburns/Watch'
 		'9fans.net/go/acme/editinacme'
