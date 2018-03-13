@@ -33,6 +33,7 @@ set nowrap
 
 set splitbelow
 set splitright
+autocmd VimResized * wincmd =
 
 set wildmenu
 set confirm
