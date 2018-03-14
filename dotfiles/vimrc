@@ -6,6 +6,8 @@ set rnu
 set mouse=a
 set shortmess+=I
 
+let mapleader = ","
+
 set tabstop=4
 set softtabstop=4
 set shiftwidth=4
