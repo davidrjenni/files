@@ -68,6 +68,11 @@ if v:version > 703 || v:version == 703 && has('patch541')
 	set formatoptions+=j
 endif
 
+nnoremap D dd
+nnoremap H ^
+nnoremap L $
+vnoremap H ^
+vnoremap L g_
 nnoremap <BS> {
 
 augroup resCur
