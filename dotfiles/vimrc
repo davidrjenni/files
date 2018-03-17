@@ -75,6 +75,9 @@ vnoremap H ^
 vnoremap L g_
 nnoremap <BS> {
 
+autocmd! User GoyoEnter Limelight
+autocmd! User GoyoLeave Limelight!
+
 augroup resCur
 	autocmd!
 	autocmd BufReadPost * call setpos(".", getpos("'\""))
