@@ -83,6 +83,16 @@ augroup resCur
 	autocmd BufReadPost * call setpos(".", getpos("'\""))
 augroup END
 
+map <C-n> :cn<CR>
+map <C-m> :cp<CR>
+nnoremap <leader>a :cclose<CR>
+
+augroup quickfix
+	autocmd!
+	autocmd FileType qf wincmd J
+	autocmd FileType qf setlocal wrap
+augroup END
+
 filetype plugin on
 filetype plugin indent off
 
