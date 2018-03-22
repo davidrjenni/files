@@ -121,5 +121,5 @@ autocmd FileType tex inoremap ;enum  \begin{enumerate}<Enter><Enter>\end{enumera
 autocmd FileType tex inoremap ;item  \begin{itemize}<Enter><Enter>\end{itemize}<Esc>kA<Tab>\item<Space>
 autocmd FileType tex inoremap ;li    \item<Space>
 autocmd FileType tex inoremap ;di    \item<Space>[]<Space><Esc>T[i
-autocmd FileType tex inoremap ;fig   \begin{figure}[h]<Enter><Tab>\centering<Enter><Tab>\includegraphics[scale=0.5]{TODO}<Enter><Tab>\caption{TODO}<Enter><Tab>\label{fig:TODO}<Enter>\end{figure}<Enter>
+autocmd FileType tex inoremap ;fig   \begin{figure}[htbp]<Enter><Tab>\centering<Enter><Tab>\includegraphics[scale=0.5]{TODO}<Enter><Tab>\caption{TODO}<Enter><Tab>\label{fig:TODO}<Enter>\end{figure}<Enter>
 autocmd FileType tex inoremap ;tab   \begin{table}[h]<Enter><Tab>\begin{center}<Enter><Tab><Tab>\begin{tabular}{TODO}<Enter><Tab><Tab>\end{tabular}<Enter><Tab>\caption{\label{tab:TODO}TODO}<Enter><Tab>\end{center}<Enter>\end{table}<Enter>
