@@ -75,6 +75,11 @@ vnoremap H ^
 vnoremap L g_
 nnoremap <BS> {
 
+imap <c-x><c-l> <plug>(fzf-complete-line)
+map <leader>p :Files<CR>
+map <leader>f :Find<space>
+command! -bang -nargs=* Find call fzf#vim#grep( 'rg --column --line-number --no-heading --fixed-strings --ignore-case --hidden --follow --color "always" '.shellescape(<q-args>), 1, <bang>0)
+
 imap <C-k> <Plug>(neosnippet_expand_or_jump)
 smap <C-k> <Plug>(neosnippet_expand_or_jump)
 xmap <C-k> <Plug>(neosnippet_expand_target)
