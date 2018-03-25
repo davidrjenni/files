@@ -74,6 +74,9 @@ nnoremap L $
 vnoremap H ^
 vnoremap L g_
 nnoremap <BS> {
+map <F7> :NERDTreeToggle<CR>
+map q: :q
+nnoremap <silent> <F5> :source ~/.vimrc<CR>
 
 imap <c-x><c-l> <plug>(fzf-complete-line)
 map <leader>p :Files<CR>
