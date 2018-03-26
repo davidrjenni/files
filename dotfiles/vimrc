@@ -132,6 +132,45 @@ autocmd FileType tex inoremap ;di    \item<Space>[]<Space><Esc>T[i
 autocmd FileType tex inoremap ;fig   \begin{figure}[htbp]<Enter><Tab>\centering<Enter><Tab>\includegraphics[scale=0.5]{TODO}<Enter><Tab>\caption{TODO}<Enter><Tab>\label{fig:TODO}<Enter>\end{figure}<Enter>
 autocmd FileType tex inoremap ;tab   \begin{table}[h]<Enter><Tab>\begin{center}<Enter><Tab><Tab>\begin{tabular}{TODO}<Enter><Tab><Tab>\end{tabular}<Enter><Tab>\caption{\label{tab:TODO}TODO}<Enter><Tab>\end{center}<Enter>\end{table}<Enter>
 
+let g:go_fmt_fail_silently = 1
+let g:go_fmt_command = "goimports"
+let g:go_auto_type_info = 1
+let g:go_guru_scope = ["..."]
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_types = 1
+let g:go_highlight_structs = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_build_constraints = 1
+let g:go_highlight_generate_tags = 1
+let g:go_doc_url = 'http://localhost:6060'
+let g:go_list_type = "quickfix"
+let g:go_info_mode = "guru"
+let g:go_metalinter_autosave_enabled = ['vet', 'golint']
+
+function! s:build_go_files()
+	let l:file = expand('%')
+	if l:file =~# '^\f\+_test\.go$'
+		call go#test#Test(0, 1)
+		elseif l:file =~# '^\f\+\.go$'
+		call go#cmd#Build(0)
+	endif
+endfunction
+
+autocmd FileType go nmap <silent> <leader>b :<C-u>call <SID>build_go_files()<CR>
+autocmd FileType go nmap <silent> <leader>r <Plug>(go-referrers)
+autocmd FileType go nmap <silent> <leader>t <Plug>(go-test)
+autocmd FileType go nmap <silent> <leader>c <Plug>(go-coverage-toggle)
+autocmd FileType go nmap <silent> <leader>l <Plug>(go-metalinter)
+autocmd Filetype go nmap <silent> <leader>v :vsp <CR>:exe "GoDef"<CR>
+autocmd Filetype go nmap <silent> <leader>s :sp  <CR>:exe "GoDef"<CR>
+autocmd Filetype go nmap <C-g> :GoDecls<cr>
+autocmd Filetype go imap <C-g> <esc>:<C-u>GoDecls<cr>
+autocmd Filetype go command! -bang A call  go#alternate#Switch(<bang>0, 'edit')
+autocmd Filetype go command! -bang AV call go#alternate#Switch(<bang>0, 'vsplit')
+autocmd Filetype go command! -bang AS call go#alternate#Switch(<bang>0, 'split')
+autocmd Filetype go nnoremap <F8> :TagbarToggle<CR>
+
 let g:tagbar_type_go = {
 	\ 'ctagstype' : 'go',
 	\ 'kinds'     : [
