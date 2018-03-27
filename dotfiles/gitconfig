@@ -18,6 +18,9 @@
 	lg = log --graph --pretty=format:'%h : %an : %ar %n%w(60)%s'
 	rb = rebase
 	us = reset HEAD
+	files   = !git diff --name-only $(git merge-base HEAD master)
+	stat    = !git diff --stat $(git merge-base HEAD master)
+	review  = !vim -p $(git files) +\"tabdo Gdiff master\" +\"let g:gitgutter_diff_base = 'master'\"
 	change  = codereview change
 	gofmt   = codereview gofmt
 	mail    = codereview mail
