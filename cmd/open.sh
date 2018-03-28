@@ -7,7 +7,7 @@ case "$1" in
 	*.png|*.PNG|*.gif|*.jpg|*.JPG|*.jpeg|*.JPEG)
 		fmt="sxiv %s &"
 		;;
-	*.pdf|*.epub)
+	*.pdf|*.PDF|*.epub)
 		fmt="mupdf %s 2> /dev/null &"
 		;;
 	*.c|*.cpp|*.h|*.hpp|*.go|*.rs|*.py|*.sh|*.js|*.toml|Makefile|*.md|*.tex|*.hs|*.xml)
