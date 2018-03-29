@@ -15,7 +15,6 @@ set tabstop=4
 set softtabstop=4
 set shiftwidth=4
 set noexpandtab
-set autoindent
 
 set incsearch
 set hlsearch
@@ -34,6 +33,7 @@ set list
 
 set lazyredraw
 set autoread
+set autowrite
 set nowrap
 
 set splitbelow
@@ -106,7 +106,7 @@ augroup quickfix
 augroup END
 
 filetype plugin on
-filetype plugin indent off
+filetype plugin indent on
 
 autocmd BufEnter *.tex :setlocal filetype=tex
 
