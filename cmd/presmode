@@ -1,0 +1,16 @@
+#!/bin/sh
+
+xset s off # screensaver: off
+case "$1" in
+	"on")
+		xset -dpms
+		;;
+	"off")
+		xset +dpms
+		xset dpms 600 900 1200
+		;;
+	*)
+		echo "usage: presmode (on|off)"
+		exit 1
+		;;
+esac
