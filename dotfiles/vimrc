@@ -117,7 +117,7 @@ autocmd FileType tex syntax spell toplevel
 autocmd FileType tex inoremap ;bf    \textbf{}<Esc>T{i
 autocmd FileType tex inoremap ;if    \textit{}<Esc>T{i
 autocmd FileType tex inoremap ;tf    \texttt{}<Esc>T{i
-autocmd FileType tex inoremap ;"     ``''<Esc>2ha
+autocmd FileType tex inoremap ;q     ``''<Esc>2ha
 autocmd FileType tex inoremap ;cal   \mathcal{}<Esc>T{i
 autocmd FileType tex inoremap ;mbf   \mathbf{}<Esc>T{i
 autocmd FileType tex inoremap ;sec   \section{}<Esc>T{i
