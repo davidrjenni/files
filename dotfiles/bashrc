@@ -62,7 +62,7 @@ export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
 
 function acmef() {
 	if [ -z $1 ]; then
-		file="acme.dump"
+		file="dumps/acme.dump"
 	else
 		file=$1
 	fi
