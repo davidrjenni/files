@@ -66,8 +66,9 @@ function acmef() {
 	else
 		file=$1
 	fi
-	sh -c "nohup sh -c 'acme -l '$HOME/$file' -a -f /mnt/font/Go\ Regular/15a/font &>/dev/null' &>/dev/null &"
-	sh -c "nohup sh -c 'sleep 2 && acmego -f &>/dev/null' &>/dev/null &"
+	nohup acme -l $HOME/$file -a -f /mnt/font/Go\ Regular/15a/font >/dev/null 2>&1 &
+	sleep 2
+	nohup acmego -f >/dev/null 2>&1 &
 }
 
 git_branch() {
