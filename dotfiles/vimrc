@@ -74,6 +74,7 @@ nnoremap L $
 vnoremap H ^
 vnoremap L g_
 nnoremap <BS> {
+vnoremap <BS> {
 map <F7> :NERDTreeToggle<CR>
 map q: :q
 nnoremap <silent> <F5> :source ~/.vimrc<CR>
