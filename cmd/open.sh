@@ -2,7 +2,7 @@
 
 case "$1" in
 	*.htm|*.html)
-		fmt="firefox %s"
+		fmt="firefox %s &"
 		;;
 	*.png|*.PNG|*.gif|*.jpg|*.JPG|*.jpeg|*.JPEG)
 		fmt="sxiv %s &"
