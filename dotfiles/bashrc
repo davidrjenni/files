@@ -20,7 +20,7 @@ export PAGER=less
 export PLAN9=~/code/plan9port
 export GOPATH=~/gocode
 export GOROOT=~/go
-export GOROOT_BOOTSTRAP=~/go1.11
+export GOROOT_BOOTSTRAP=~/go1.12.1
 export ROVER_OPEN=open.sh
 
 export CDPATH=.:~:$GOROOT/src:$GOPATH/src/golang.org:$GOPATH/src/github.com:$GOPATH/src/github.com/davidrjenni:~/code
@@ -148,12 +148,12 @@ install_go_tools() {
 	done
 }
 
-go1.10() {
-	GOROOT=~/go1.10.4 ~/go1.10.4/bin/go $@
+go1.11() {
+	GOROOT=~/go1.11.6 ~/go1.11.6/bin/go $@
 }
 
-go1.11() {
-	GOROOT=~/go1.11 ~/go1.11/bin/go $@
+go1.12() {
+	GOROOT=~/go1.12.1 ~/go1.12.1/bin/go $@
 }
 
 deps() {
