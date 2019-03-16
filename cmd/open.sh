@@ -13,8 +13,11 @@ case "$1" in
 	*.c|*.cpp|*.h|*.hpp|*.go|*.rs|*.py|*.sh|*.js|*.toml|Makefile|*.md|*.tex|*.hs|*.xml)
 		fmt="vim %s"
 		;;
-	*.mp3|*.ogg|*.mp4|*.avi)
+	*.mp3|*.ogg|*.mp4|*.avi|*.MP4)
 		fmt="mplayer %s"
+		;;
+	http[s]://*)
+		fmt="firefox %s &"
 		;;
 	'')
 		echo "usage: open.sh [path]"
